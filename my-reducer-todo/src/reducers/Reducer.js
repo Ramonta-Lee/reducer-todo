@@ -1,5 +1,3 @@
-import React from "react";
-
 export const Reducer = (state, action) => {
   switch (action.type) {
     case "TOGGLE_COMPLETE":

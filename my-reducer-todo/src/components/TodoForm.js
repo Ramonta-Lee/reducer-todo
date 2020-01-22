@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 
-export const TodoForm = ({addTodo}) => {
+export const TodoForm = ({ addTodo }) => {
   const [newTodo, setNewTodo] = useState("");
 
   const handleChanges = e => {

@@ -4,7 +4,6 @@ import Todo from "./Todo";
 const TodoList = props => {
   console.log("I am props", props);
 
-
   return (
     <div className="todo-list">
       {props.todos.todos.map(item => (
@@ -15,7 +14,14 @@ const TodoList = props => {
           // toggleCompleted={toggleCompleted}
         />
       ))}
-      <button className="DELETE_TODO">Delete Completed Todos</button>
+      <button
+        className="DELETE_TODO"
+        onClick={() =>
+          props.dispatch({ type: "DELETE_TODO", payload: props.completed })
+        }
+      >
+        Delete Completed Todos
+      </button>
     </div>
   );
 };

@@ -13,16 +13,15 @@ export const initialState = {
 export const Reducer = (state, action) => {
   switch (action.type) {
     case "TOGGLE_COMPLETE":
-     // console.log("console", state, action)
-     const toggler = state.todos.map(item => {
-      if(item.id === action.payload.id){
-        item.completed = !item.completed
-      }
-      else return item;
-     })
-      return { 
-       todos: [...state.todos,
-        toggler ]};
+      // console.log("console", state, action)
+      const toggler = state.todos.map(item => {
+        if (item.id === action.payload.id) {
+          item.completed = !item.completed;
+        } else return item;
+      });
+      return {
+        todos: [...state.todos, toggler]
+      };
     case "ADD_TODO":
       return {
         todos: [
@@ -35,7 +34,9 @@ export const Reducer = (state, action) => {
         ]
       };
     case "DELETE_TODO":
-      return state.filter(e => !e.completed);
+      return {
+        todos: state.todos.filter(e => !e.completed)
+      };
     default:
       return state;
   }

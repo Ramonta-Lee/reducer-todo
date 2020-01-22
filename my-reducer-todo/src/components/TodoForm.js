@@ -1,12 +1,9 @@
-import React, { useState, useReducer } from "react";
-import { initialState, Reducer } from "../reducers/Reducer";
-import TodoList from "../components/TodoList";
+import React, { useState } from "react";
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
 
-export const TodoForm = () => {
+export const TodoForm = ({addTodo}) => {
   const [newTodo, setNewTodo] = useState("");
-  const [state, dispatch] = useReducer(Reducer, initialState);
-
-  console.log("i am state", state);
 
   const handleChanges = e => {
     e.preventDefault();
@@ -15,17 +12,24 @@ export const TodoForm = () => {
 
   return (
     <div>
-      <input
+      <TextField
+        id="outlined-basic"
+        label="Add Todo"
+        variant="outlined"
         className="todo-input"
         type="text"
         name="newTodo"
         value={newTodo}
         onChange={handleChanges}
       />
-      <button onClick={() => dispatch({ type: "ADD_TODO", payload: newTodo })}>
+      <Button
+        className="add-button"
+        variant="contained"
+        color="primary"
+        onClick={() => addTodo(newTodo)}
+      >
         Add Todo
-      </button>
-      <TodoList todos={state} dispatch={dispatch} />
+      </Button>
     </div>
   );
 };

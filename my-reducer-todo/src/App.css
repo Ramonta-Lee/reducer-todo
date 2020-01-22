@@ -37,10 +37,19 @@
   }
 }
 
-.todo {
-  border: 1px solid green;
-}
+
 
 .TOGGLE_COMPLETE {
+  color: red;
   text-decoration: line-through;
+}
+
+.add-button {
+  color: blue !important;
+  background-color: green !important;
+}
+
+.DELETE_TODO {
+  color: #fff !important;
+  background-color: crimson !important;
 }
